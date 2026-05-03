@@ -1,0 +1,21 @@
+{
+  "num_nodes": 6301,
+  "num_features": 5,
+  "embed_dim": 128,
+  "hidden_dim": 256,
+  "num_layers": 3,
+  "dropout": 0.3,
+  "label_smoothing": 0.05,
+  "epochs_trained": 1500,
+  "best_epoch": 1310,
+  "best_val_auc": 0.923642,
+  "train_edges": 17662,
+  "model_params": 235136,
+  "device": "mps",
+  "elapsed_seconds": 54.89,
+  "output_files": {
+    "embeddings_npy": "node_embeddings.npy",
+    "embeddings_pt": "node_embeddings.pt"
+  },
+  "usage_note": "P_uv = torch.sigmoid((H[v] * H[u]).sum(dim=-1))  where H = torch.load('node_embeddings.pt')"
+}

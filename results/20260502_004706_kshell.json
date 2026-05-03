@@ -1,0 +1,236 @@
+{
+  "run_id": "20260502_004706_kshell",
+  "config": {
+    "graph": {
+      "data_path": "data/p2p-Gnutella08.txt",
+      "directed": true
+    },
+    "ic": {
+      "embeddings_path": "node_embeddings.pt",
+      "n_simulations": 100,
+      "prob_threshold": 0.0001,
+      "seed": 42,
+      "device": "cpu"
+    },
+    "env": {
+      "budget": 10,
+      "mask_activated": true
+    },
+    "agent": {
+      "strategy": "kshell",
+      "mc_rollouts": 50,
+      "learning_rate": 0.001,
+      "gamma": 0.99,
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.05,
+      "epsilon_decay": 500,
+      "replay_buffer_size": 10000,
+      "batch_size": 64,
+      "target_update_freq": 10,
+      "linucb_alpha": 1.0,
+      "linucb_lambda": 1.0,
+      "imm_n_rr_sets": 10000,
+      "degree_discount_p": 0.01,
+      "pagerank_reverse": false,
+      "embeddings_path": "node_embeddings.pt"
+    },
+    "n_episodes": 1,
+    "results_dir": "results",
+    "log_level": "INFO",
+    "seed": 42
+  },
+  "elapsed_seconds": 4.64,
+  "summary": {
+    "n_episodes": 1,
+    "mean_spread": 4376.78,
+    "std_spread": 0.0,
+    "mean_reward": 4376.78
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "total_reward": 4376.78,
+      "final_spread": 4376.78,
+      "final_seed_set": [
+        3,
+        366,
+        421,
+        752,
+        1113,
+        1161,
+        1494,
+        1603,
+        1723,
+        1884
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 3,
+          "reward": 4339.66,
+          "mean_spread": 4339.66,
+          "std_spread": 440.3349,
+          "seed_set": [
+            3
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 6028
+        },
+        {
+          "step": 1,
+          "action": 366,
+          "reward": 30.64,
+          "mean_spread": 4370.3,
+          "std_spread": 60.7287,
+          "seed_set": [
+            3,
+            366
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 6029
+        },
+        {
+          "step": 2,
+          "action": 421,
+          "reward": 2.74,
+          "mean_spread": 4373.04,
+          "std_spread": 62.2644,
+          "seed_set": [
+            3,
+            366,
+            421
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 6030
+        },
+        {
+          "step": 3,
+          "action": 1161,
+          "reward": 6.13,
+          "mean_spread": 4379.17,
+          "std_spread": 70.1454,
+          "seed_set": [
+            3,
+            366,
+            421,
+            1161
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 6031
+        },
+        {
+          "step": 4,
+          "action": 1494,
+          "reward": -0.68,
+          "mean_spread": 4378.49,
+          "std_spread": 66.3668,
+          "seed_set": [
+            3,
+            366,
+            421,
+            1161,
+            1494
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6032
+        },
+        {
+          "step": 5,
+          "action": 1884,
+          "reward": 4.96,
+          "mean_spread": 4383.45,
+          "std_spread": 62.5524,
+          "seed_set": [
+            3,
+            366,
+            421,
+            1161,
+            1494,
+            1884
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 6033
+        },
+        {
+          "step": 6,
+          "action": 1603,
+          "reward": -5.57,
+          "mean_spread": 4377.88,
+          "std_spread": 69.8225,
+          "seed_set": [
+            3,
+            366,
+            421,
+            1161,
+            1494,
+            1603,
+            1884
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 6034
+        },
+        {
+          "step": 7,
+          "action": 1113,
+          "reward": 5.41,
+          "mean_spread": 4383.29,
+          "std_spread": 63.6111,
+          "seed_set": [
+            3,
+            366,
+            421,
+            1113,
+            1161,
+            1494,
+            1603,
+            1884
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 6035
+        },
+        {
+          "step": 8,
+          "action": 1723,
+          "reward": 0.26,
+          "mean_spread": 4383.55,
+          "std_spread": 66.3078,
+          "seed_set": [
+            3,
+            366,
+            421,
+            1113,
+            1161,
+            1494,
+            1603,
+            1723,
+            1884
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 6036
+        },
+        {
+          "step": 9,
+          "action": 752,
+          "reward": -6.77,
+          "mean_spread": 4376.78,
+          "std_spread": 60.39,
+          "seed_set": [
+            3,
+            366,
+            421,
+            752,
+            1113,
+            1161,
+            1494,
+            1603,
+            1723,
+            1884
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6037
+        }
+      ]
+    }
+  ]
+}

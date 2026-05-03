@@ -1,0 +1,109 @@
+{
+  "run_id": "20260502_024845_kshell",
+  "config": {
+    "graph": {
+      "data_path": "data/p2p-Gnutella08.txt",
+      "directed": true
+    },
+    "ic": {
+      "embeddings_path": "node_embeddings.pt",
+      "n_simulations": 20,
+      "prob_threshold": 0.0001,
+      "seed": 42,
+      "device": "auto"
+    },
+    "env": {
+      "budget": 3,
+      "mask_activated": true
+    },
+    "agent": {
+      "strategy": "kshell",
+      "mc_rollouts": 50,
+      "learning_rate": 0.001,
+      "gamma": 0.99,
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.05,
+      "epsilon_decay": 500,
+      "replay_buffer_size": 10000,
+      "batch_size": 64,
+      "target_update_freq": 10,
+      "linucb_alpha": 1.0,
+      "linucb_lambda": 1.0,
+      "imm_epsilon": 0.1,
+      "imm_delta": 0.0,
+      "imm_theta_max": 200000,
+      "pagerank_alpha": 0.85,
+      "betweenness_n_samples": 1000,
+      "dd_propagation_p": 0.0,
+      "community_resolution": 1.0,
+      "s2v_t_iters": 4,
+      "s2v_hidden_dim": 64,
+      "embeddings_path": "node_embeddings.pt"
+    },
+    "n_episodes": 1,
+    "results_dir": "results",
+    "log_level": "WARNING",
+    "seed": 42
+  },
+  "elapsed_seconds": 0.35,
+  "summary": {
+    "n_episodes": 1,
+    "mean_spread": 4383.6,
+    "std_spread": 0.0,
+    "mean_reward": 4383.6
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "total_reward": 4383.6,
+      "final_spread": 4383.6,
+      "final_seed_set": [
+        3,
+        366,
+        421
+      ],
+      "n_steps": 3,
+      "steps": [
+        {
+          "step": 0,
+          "action": 3,
+          "reward": 4403.0,
+          "mean_spread": 4403.0,
+          "std_spread": 57.7174,
+          "seed_set": [
+            3
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 6019
+        },
+        {
+          "step": 1,
+          "action": 366,
+          "reward": -31.1,
+          "mean_spread": 4371.9,
+          "std_spread": 63.3963,
+          "seed_set": [
+            3,
+            366
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 6015
+        },
+        {
+          "step": 2,
+          "action": 421,
+          "reward": 11.7,
+          "mean_spread": 4383.6,
+          "std_spread": 65.1739,
+          "seed_set": [
+            3,
+            366,
+            421
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6021
+        }
+      ]
+    }
+  ]
+}

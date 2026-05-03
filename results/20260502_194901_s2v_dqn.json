@@ -1,0 +1,5607 @@
+{
+  "run_id": "20260502_194901_s2v_dqn",
+  "config": {
+    "graph": {
+      "data_path": "data/p2p-Gnutella08.txt",
+      "directed": true
+    },
+    "ic": {
+      "embeddings_path": "node_embeddings.pt",
+      "n_simulations": 100,
+      "prob_threshold": 0.0001,
+      "seed": 42,
+      "device": "auto"
+    },
+    "env": {
+      "budget": 10,
+      "mask_activated": true
+    },
+    "agent": {
+      "strategy": "s2v_dqn",
+      "mc_rollouts": 50,
+      "learning_rate": 0.001,
+      "gamma": 0.99,
+      "epsilon_start": 1.0,
+      "epsilon_end": 0.05,
+      "epsilon_decay": 30,
+      "replay_buffer_size": 10000,
+      "batch_size": 16,
+      "target_update_freq": 10,
+      "linucb_alpha": 1.0,
+      "linucb_lambda": 1.0,
+      "imm_epsilon": 0.1,
+      "imm_delta": 0.0,
+      "imm_theta_max": 200000,
+      "pagerank_alpha": 0.85,
+      "betweenness_n_samples": 1000,
+      "dd_propagation_p": 0.0,
+      "community_resolution": 1.0,
+      "s2v_t_iters": 4,
+      "s2v_hidden_dim": 64,
+      "embeddings_path": "node_embeddings.pt"
+    },
+    "n_episodes": 30,
+    "results_dir": "results",
+    "log_level": "WARNING",
+    "seed": 42
+  },
+  "elapsed_seconds": 188.75,
+  "summary": {
+    "n_episodes": 30,
+    "mean_spread": 1016.5187,
+    "std_spread": 1823.0676,
+    "mean_reward": 1016.5187
+  },
+  "episodes": [
+    {
+      "episode": 0,
+      "total_reward": 4380.0,
+      "final_spread": 4380.0,
+      "final_seed_set": [
+        319,
+        366,
+        421,
+        644,
+        1161,
+        1244,
+        1410,
+        1494,
+        1884,
+        4124
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 4124,
+          "reward": 4280.87,
+          "mean_spread": 4280.87,
+          "std_spread": 612.2431,
+          "seed_set": [
+            4124
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 6028
+        },
+        {
+          "step": 1,
+          "action": 1244,
+          "reward": 1.0,
+          "mean_spread": 4281.87,
+          "std_spread": 612.2431,
+          "seed_set": [
+            1244,
+            4124
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 6029
+        },
+        {
+          "step": 2,
+          "action": 644,
+          "reward": -39.59,
+          "mean_spread": 4242.28,
+          "std_spread": 746.1586,
+          "seed_set": [
+            644,
+            1244,
+            4124
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 6030
+        },
+        {
+          "step": 3,
+          "action": 366,
+          "reward": 134.69,
+          "mean_spread": 4376.97,
+          "std_spread": 60.5889,
+          "seed_set": [
+            366,
+            644,
+            1244,
+            4124
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 6031
+        },
+        {
+          "step": 4,
+          "action": 1884,
+          "reward": 0.19,
+          "mean_spread": 4377.16,
+          "std_spread": 66.8558,
+          "seed_set": [
+            366,
+            644,
+            1244,
+            1884,
+            4124
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6032
+        },
+        {
+          "step": 5,
+          "action": 1161,
+          "reward": 6.53,
+          "mean_spread": 4383.69,
+          "std_spread": 62.9242,
+          "seed_set": [
+            366,
+            644,
+            1161,
+            1244,
+            1884,
+            4124
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 6033
+        },
+        {
+          "step": 6,
+          "action": 319,
+          "reward": 1.0,
+          "mean_spread": 4384.69,
+          "std_spread": 62.9242,
+          "seed_set": [
+            319,
+            366,
+            644,
+            1161,
+            1244,
+            1884,
+            4124
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 6034
+        },
+        {
+          "step": 7,
+          "action": 1410,
+          "reward": 1.0,
+          "mean_spread": 4385.69,
+          "std_spread": 62.9242,
+          "seed_set": [
+            319,
+            366,
+            644,
+            1161,
+            1244,
+            1410,
+            1884,
+            4124
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 6035
+        },
+        {
+          "step": 8,
+          "action": 421,
+          "reward": -5.13,
+          "mean_spread": 4380.56,
+          "std_spread": 54.7911,
+          "seed_set": [
+            319,
+            366,
+            421,
+            644,
+            1161,
+            1244,
+            1410,
+            1884,
+            4124
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 6036
+        },
+        {
+          "step": 9,
+          "action": 1494,
+          "reward": -0.56,
+          "mean_spread": 4380.0,
+          "std_spread": 68.2378,
+          "seed_set": [
+            319,
+            366,
+            421,
+            644,
+            1161,
+            1244,
+            1410,
+            1494,
+            1884,
+            4124
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6037
+        }
+      ]
+    },
+    {
+      "episode": 1,
+      "total_reward": 4381.88,
+      "final_spread": 4381.88,
+      "final_seed_set": [
+        366,
+        367,
+        421,
+        1113,
+        1161,
+        1187,
+        1494,
+        1596,
+        1884,
+        3073
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 367,
+          "reward": 4380.59,
+          "mean_spread": 4380.59,
+          "std_spread": 60.7811,
+          "seed_set": [
+            367
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 6028
+        },
+        {
+          "step": 1,
+          "action": 366,
+          "reward": -9.88,
+          "mean_spread": 4370.71,
+          "std_spread": 64.1274,
+          "seed_set": [
+            366,
+            367
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 6029
+        },
+        {
+          "step": 2,
+          "action": 1187,
+          "reward": 1.0,
+          "mean_spread": 4371.71,
+          "std_spread": 64.1274,
+          "seed_set": [
+            366,
+            367,
+            1187
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 6030
+        },
+        {
+          "step": 3,
+          "action": 1884,
+          "reward": 5.24,
+          "mean_spread": 4376.95,
+          "std_spread": 61.5331,
+          "seed_set": [
+            366,
+            367,
+            1187,
+            1884
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 6031
+        },
+        {
+          "step": 4,
+          "action": 3073,
+          "reward": 1.0,
+          "mean_spread": 4377.95,
+          "std_spread": 61.5331,
+          "seed_set": [
+            366,
+            367,
+            1187,
+            1884,
+            3073
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6032
+        },
+        {
+          "step": 5,
+          "action": 1161,
+          "reward": -1.55,
+          "mean_spread": 4376.4,
+          "std_spread": 67.8055,
+          "seed_set": [
+            366,
+            367,
+            1161,
+            1187,
+            1884,
+            3073
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 6033
+        },
+        {
+          "step": 6,
+          "action": 421,
+          "reward": 1.39,
+          "mean_spread": 4377.79,
+          "std_spread": 67.4717,
+          "seed_set": [
+            366,
+            367,
+            421,
+            1161,
+            1187,
+            1884,
+            3073
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 6034
+        },
+        {
+          "step": 7,
+          "action": 1494,
+          "reward": -3.96,
+          "mean_spread": 4373.83,
+          "std_spread": 64.1766,
+          "seed_set": [
+            366,
+            367,
+            421,
+            1161,
+            1187,
+            1494,
+            1884,
+            3073
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 6035
+        },
+        {
+          "step": 8,
+          "action": 1113,
+          "reward": 4.71,
+          "mean_spread": 4378.54,
+          "std_spread": 64.5449,
+          "seed_set": [
+            366,
+            367,
+            421,
+            1113,
+            1161,
+            1187,
+            1494,
+            1884,
+            3073
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 6036
+        },
+        {
+          "step": 9,
+          "action": 1596,
+          "reward": 3.34,
+          "mean_spread": 4381.88,
+          "std_spread": 66.1357,
+          "seed_set": [
+            366,
+            367,
+            421,
+            1113,
+            1161,
+            1187,
+            1494,
+            1596,
+            1884,
+            3073
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6038
+        }
+      ]
+    },
+    {
+      "episode": 2,
+      "total_reward": 16.98,
+      "final_spread": 16.98,
+      "final_seed_set": [
+        588,
+        1461,
+        1578,
+        1683,
+        3044,
+        3888,
+        4644,
+        5169,
+        5217,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 588,
+          "reward": 7.07,
+          "mean_spread": 7.07,
+          "std_spread": 1.485,
+          "seed_set": [
+            588
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 11
+        },
+        {
+          "step": 1,
+          "action": 1578,
+          "reward": 1.0,
+          "mean_spread": 8.07,
+          "std_spread": 1.485,
+          "seed_set": [
+            588,
+            1578
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 12
+        },
+        {
+          "step": 2,
+          "action": 1683,
+          "reward": 1.87,
+          "mean_spread": 9.94,
+          "std_spread": 1.636,
+          "seed_set": [
+            588,
+            1578,
+            1683
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 14
+        },
+        {
+          "step": 3,
+          "action": 5217,
+          "reward": 1.0,
+          "mean_spread": 10.94,
+          "std_spread": 1.636,
+          "seed_set": [
+            588,
+            1578,
+            1683,
+            5217
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 15
+        },
+        {
+          "step": 4,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 11.94,
+          "std_spread": 1.636,
+          "seed_set": [
+            588,
+            1578,
+            1683,
+            5217,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 16
+        },
+        {
+          "step": 5,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 12.94,
+          "std_spread": 1.636,
+          "seed_set": [
+            588,
+            1578,
+            1683,
+            3888,
+            5217,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 17
+        },
+        {
+          "step": 6,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 13.94,
+          "std_spread": 1.636,
+          "seed_set": [
+            588,
+            1578,
+            1683,
+            3044,
+            3888,
+            5217,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 18
+        },
+        {
+          "step": 7,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 14.94,
+          "std_spread": 1.636,
+          "seed_set": [
+            588,
+            1461,
+            1578,
+            1683,
+            3044,
+            3888,
+            5217,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 19
+        },
+        {
+          "step": 8,
+          "action": 4644,
+          "reward": 1.04,
+          "mean_spread": 15.98,
+          "std_spread": 1.5361,
+          "seed_set": [
+            588,
+            1461,
+            1578,
+            1683,
+            3044,
+            3888,
+            4644,
+            5217,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 20
+        },
+        {
+          "step": 9,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 16.98,
+          "std_spread": 1.5361,
+          "seed_set": [
+            588,
+            1461,
+            1578,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5217,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 21
+        }
+      ]
+    },
+    {
+      "episode": 3,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        589,
+        1461,
+        1683,
+        3044,
+        3888,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 1.0,
+          "std_spread": 0.0,
+          "seed_set": [
+            5577
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 1
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.0,
+          "std_spread": 0.0,
+          "seed_set": [
+            1461,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 2
+        },
+        {
+          "step": 2,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3888,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 589,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            589,
+            1461,
+            1683,
+            3888,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            589,
+            1461,
+            1683,
+            3044,
+            3888,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            589,
+            1461,
+            1683,
+            3044,
+            3888,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            589,
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            589,
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            589,
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 4,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1683,
+        3044,
+        3888,
+        4644,
+        5020,
+        5169,
+        5376,
+        5577,
+        5733
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5020,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5020,
+            5169,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5020,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5733,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5020,
+            5169,
+            5376,
+            5577,
+            5733
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 5,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        589,
+        1461,
+        1683,
+        3044,
+        3888,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5169,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5169,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 589,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            589,
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 6,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1683,
+        3044,
+        4644,
+        4958,
+        5169,
+        5376,
+        5391,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 4958,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            4958,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4958,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            4958,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            4958,
+            5376,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            4958,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            4958,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5391,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            4958,
+            5169,
+            5376,
+            5391,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 7,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1683,
+        1773,
+        3044,
+        4644,
+        4859,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 1773,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1773,
+            3044,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 4859,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1773,
+            3044,
+            4644,
+            4859,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 8,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3770,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 9,
+      "total_reward": 4035.71,
+      "final_spread": 4035.71,
+      "final_seed_set": [
+        1099,
+        1101,
+        1182,
+        1183,
+        1185,
+        1186,
+        1187,
+        1188,
+        1683,
+        4551
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 4551,
+          "reward": 4067.46,
+          "mean_spread": 4067.46,
+          "std_spread": 1113.8151,
+          "seed_set": [
+            4551
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 6028
+        },
+        {
+          "step": 1,
+          "action": 1683,
+          "reward": -307.01,
+          "mean_spread": 3760.45,
+          "std_spread": 1514.215,
+          "seed_set": [
+            1683,
+            4551
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 6030
+        },
+        {
+          "step": 2,
+          "action": 1182,
+          "reward": 1.0,
+          "mean_spread": 3761.45,
+          "std_spread": 1514.215,
+          "seed_set": [
+            1182,
+            1683,
+            4551
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 6031
+        },
+        {
+          "step": 3,
+          "action": 1183,
+          "reward": 1.0,
+          "mean_spread": 3762.45,
+          "std_spread": 1514.215,
+          "seed_set": [
+            1182,
+            1183,
+            1683,
+            4551
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 6032
+        },
+        {
+          "step": 4,
+          "action": 1185,
+          "reward": 1.0,
+          "mean_spread": 3763.45,
+          "std_spread": 1514.215,
+          "seed_set": [
+            1182,
+            1183,
+            1185,
+            1683,
+            4551
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6033
+        },
+        {
+          "step": 5,
+          "action": 1186,
+          "reward": 1.0,
+          "mean_spread": 3764.45,
+          "std_spread": 1514.215,
+          "seed_set": [
+            1182,
+            1183,
+            1185,
+            1186,
+            1683,
+            4551
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 6034
+        },
+        {
+          "step": 6,
+          "action": 1099,
+          "reward": 1.0,
+          "mean_spread": 3765.45,
+          "std_spread": 1514.215,
+          "seed_set": [
+            1099,
+            1182,
+            1183,
+            1185,
+            1186,
+            1683,
+            4551
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 6035
+        },
+        {
+          "step": 7,
+          "action": 1101,
+          "reward": 1.0,
+          "mean_spread": 3766.45,
+          "std_spread": 1514.215,
+          "seed_set": [
+            1099,
+            1101,
+            1182,
+            1183,
+            1185,
+            1186,
+            1683,
+            4551
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 6036
+        },
+        {
+          "step": 8,
+          "action": 1187,
+          "reward": 268.26,
+          "mean_spread": 4034.71,
+          "std_spread": 1185.2936,
+          "seed_set": [
+            1099,
+            1101,
+            1182,
+            1183,
+            1185,
+            1186,
+            1187,
+            1683,
+            4551
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 6037
+        },
+        {
+          "step": 9,
+          "action": 1188,
+          "reward": 1.0,
+          "mean_spread": 4035.71,
+          "std_spread": 1185.2936,
+          "seed_set": [
+            1099,
+            1101,
+            1182,
+            1183,
+            1185,
+            1186,
+            1187,
+            1188,
+            1683,
+            4551
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6038
+        }
+      ]
+    },
+    {
+      "episode": 10,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        2817,
+        3044,
+        3888,
+        4644,
+        5169,
+        5376,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 2817,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            2817
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            2817
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            2817,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            2817,
+            3044,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            2817,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            2817,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            2817,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            2817,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            2817,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 11,
+      "total_reward": 4384.63,
+      "final_spread": 4384.63,
+      "final_seed_set": [
+        1129,
+        1182,
+        1183,
+        1185,
+        1461,
+        1683,
+        3044,
+        4644,
+        5577,
+        5687
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 5687,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577,
+            5687
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577,
+            5687
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 1129,
+          "reward": 4374.67,
+          "mean_spread": 4381.63,
+          "std_spread": 59.2209,
+          "seed_set": [
+            1129,
+            1461,
+            1683,
+            3044,
+            4644,
+            5577,
+            5687
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 6030
+        },
+        {
+          "step": 7,
+          "action": 1182,
+          "reward": 1.0,
+          "mean_spread": 4382.63,
+          "std_spread": 59.2209,
+          "seed_set": [
+            1129,
+            1182,
+            1461,
+            1683,
+            3044,
+            4644,
+            5577,
+            5687
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 6031
+        },
+        {
+          "step": 8,
+          "action": 1183,
+          "reward": 1.0,
+          "mean_spread": 4383.63,
+          "std_spread": 59.2209,
+          "seed_set": [
+            1129,
+            1182,
+            1183,
+            1461,
+            1683,
+            3044,
+            4644,
+            5577,
+            5687
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 6032
+        },
+        {
+          "step": 9,
+          "action": 1185,
+          "reward": 1.0,
+          "mean_spread": 4384.63,
+          "std_spread": 59.2209,
+          "seed_set": [
+            1129,
+            1182,
+            1183,
+            1185,
+            1461,
+            1683,
+            3044,
+            4644,
+            5577,
+            5687
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6033
+        }
+      ]
+    },
+    {
+      "episode": 12,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3113,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 3113,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3113,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3113,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3113,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3113,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 13,
+      "total_reward": 4298.15,
+      "final_spread": 4298.15,
+      "final_seed_set": [
+        1461,
+        1683,
+        1738,
+        3044,
+        3066,
+        4644,
+        5169,
+        5376,
+        5577,
+        5583
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1738,
+          "reward": 1.0,
+          "mean_spread": 1.0,
+          "std_spread": 0.0,
+          "seed_set": [
+            1738
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 1
+        },
+        {
+          "step": 1,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            1738
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1738
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1738,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1738,
+            3044,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1738,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1738,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1738,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5583,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            1738,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577,
+            5583
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 3066,
+          "reward": 4288.19,
+          "mean_spread": 4298.15,
+          "std_spread": 614.212,
+          "seed_set": [
+            1461,
+            1683,
+            1738,
+            3044,
+            3066,
+            4644,
+            5169,
+            5376,
+            5577,
+            5583
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6030
+        }
+      ]
+    },
+    {
+      "episode": 14,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3770,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 15,
+      "total_reward": 12.22,
+      "final_spread": 12.22,
+      "final_seed_set": [
+        889,
+        1461,
+        1496,
+        1683,
+        3044,
+        3770,
+        3888,
+        4644,
+        5376,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 889,
+          "reward": 2.26,
+          "mean_spread": 6.22,
+          "std_spread": 0.7692,
+          "seed_set": [
+            889,
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 7
+        },
+        {
+          "step": 4,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 7.22,
+          "std_spread": 0.7692,
+          "seed_set": [
+            889,
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 8
+        },
+        {
+          "step": 5,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.22,
+          "std_spread": 0.7692,
+          "seed_set": [
+            889,
+            1461,
+            1683,
+            3044,
+            5376,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 9
+        },
+        {
+          "step": 6,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 9.22,
+          "std_spread": 0.7692,
+          "seed_set": [
+            889,
+            1461,
+            1683,
+            3044,
+            4644,
+            5376,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 10
+        },
+        {
+          "step": 7,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 10.22,
+          "std_spread": 0.7692,
+          "seed_set": [
+            889,
+            1461,
+            1683,
+            3044,
+            3770,
+            4644,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 11
+        },
+        {
+          "step": 8,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 11.22,
+          "std_spread": 0.7692,
+          "seed_set": [
+            889,
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            4644,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 12
+        },
+        {
+          "step": 9,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 12.22,
+          "std_spread": 0.7692,
+          "seed_set": [
+            889,
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            3888,
+            4644,
+            5376,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 13
+        }
+      ]
+    },
+    {
+      "episode": 16,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3497,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3497,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3497,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3497,
+            5169,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3497,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3497,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3497,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3497,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 17,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3770,
+        4640,
+        4644,
+        5169,
+        5376,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 4640,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4640,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4640,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4640,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            4640,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 18,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3770,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 19,
+      "total_reward": 4381.71,
+      "final_spread": 4381.71,
+      "final_seed_set": [
+        1099,
+        1101,
+        1182,
+        1183,
+        1185,
+        1186,
+        1463,
+        1683,
+        4705,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 4705,
+          "reward": 4371.75,
+          "mean_spread": 4374.71,
+          "std_spread": 68.6959,
+          "seed_set": [
+            1683,
+            4705,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 6030
+        },
+        {
+          "step": 3,
+          "action": 1182,
+          "reward": 1.0,
+          "mean_spread": 4375.71,
+          "std_spread": 68.6959,
+          "seed_set": [
+            1182,
+            1683,
+            4705,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 6031
+        },
+        {
+          "step": 4,
+          "action": 1183,
+          "reward": 1.0,
+          "mean_spread": 4376.71,
+          "std_spread": 68.6959,
+          "seed_set": [
+            1182,
+            1183,
+            1683,
+            4705,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6032
+        },
+        {
+          "step": 5,
+          "action": 1185,
+          "reward": 1.0,
+          "mean_spread": 4377.71,
+          "std_spread": 68.6959,
+          "seed_set": [
+            1182,
+            1183,
+            1185,
+            1683,
+            4705,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 6033
+        },
+        {
+          "step": 6,
+          "action": 1099,
+          "reward": 1.0,
+          "mean_spread": 4378.71,
+          "std_spread": 68.6959,
+          "seed_set": [
+            1099,
+            1182,
+            1183,
+            1185,
+            1683,
+            4705,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 6034
+        },
+        {
+          "step": 7,
+          "action": 1101,
+          "reward": 1.0,
+          "mean_spread": 4379.71,
+          "std_spread": 68.6959,
+          "seed_set": [
+            1099,
+            1101,
+            1182,
+            1183,
+            1185,
+            1683,
+            4705,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 6035
+        },
+        {
+          "step": 8,
+          "action": 1186,
+          "reward": 1.0,
+          "mean_spread": 4380.71,
+          "std_spread": 68.6959,
+          "seed_set": [
+            1099,
+            1101,
+            1182,
+            1183,
+            1185,
+            1186,
+            1683,
+            4705,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 6036
+        },
+        {
+          "step": 9,
+          "action": 1463,
+          "reward": 1.0,
+          "mean_spread": 4381.71,
+          "std_spread": 68.6959,
+          "seed_set": [
+            1099,
+            1101,
+            1182,
+            1183,
+            1185,
+            1186,
+            1463,
+            1683,
+            4705,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6037
+        }
+      ]
+    },
+    {
+      "episode": 20,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3770,
+        3888,
+        4644,
+        5169,
+        5376,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3770,
+            3888,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3770,
+            3888,
+            4644,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3770,
+            3888,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            3888,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3770,
+            3888,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 21,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3762,
+        3770,
+        4644,
+        5169,
+        5376,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3762,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3762,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3762,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3762,
+            4644,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3762,
+            3770,
+            4644,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3762,
+            3770,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3762,
+            3770,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 22,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3498,
+        3770,
+        4644,
+        5169,
+        5376,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 3498,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3498,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3498,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3498,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3498,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3498,
+            3770,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 23,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3888,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            3044
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3888,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3888,
+            5376,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3888,
+            4644,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 24,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        2996,
+        3044,
+        4644,
+        5169,
+        5376,
+        5577,
+        5583
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 2996,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            2996,
+            3044,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            2996,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5583,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            2996,
+            3044,
+            4644,
+            5577,
+            5583
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            2996,
+            3044,
+            4644,
+            5169,
+            5577,
+            5583
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            2996,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577,
+            5583
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 25,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1099,
+        1226,
+        1461,
+        1683,
+        3044,
+        3745,
+        4644,
+        5169,
+        5376,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 3745,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3745,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 1226,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1226,
+            1461,
+            1683,
+            3044,
+            3745,
+            4644,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 1099,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1099,
+            1226,
+            1461,
+            1683,
+            3044,
+            3745,
+            4644,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1099,
+            1226,
+            1461,
+            1683,
+            3044,
+            3745,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1099,
+            1226,
+            1461,
+            1683,
+            3044,
+            3745,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 26,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1683,
+        3044,
+        3107,
+        3770,
+        3888,
+        4644,
+        5169,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 3107,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3107,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3107,
+            4644,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3107,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 3770,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3107,
+            3770,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3107,
+            3770,
+            3888,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 27,
+      "total_reward": 4374.12,
+      "final_spread": 4374.12,
+      "final_seed_set": [
+        1099,
+        1101,
+        1143,
+        1182,
+        1183,
+        1185,
+        1186,
+        1218,
+        1463,
+        1683
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1143,
+          "reward": 4376.71,
+          "mean_spread": 4376.71,
+          "std_spread": 66.0365,
+          "seed_set": [
+            1143
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 6028
+        },
+        {
+          "step": 1,
+          "action": 1683,
+          "reward": -1.54,
+          "mean_spread": 4375.17,
+          "std_spread": 67.5485,
+          "seed_set": [
+            1143,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 6030
+        },
+        {
+          "step": 2,
+          "action": 1182,
+          "reward": 1.0,
+          "mean_spread": 4376.17,
+          "std_spread": 67.5485,
+          "seed_set": [
+            1143,
+            1182,
+            1683
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 6031
+        },
+        {
+          "step": 3,
+          "action": 1183,
+          "reward": 1.0,
+          "mean_spread": 4377.17,
+          "std_spread": 67.5485,
+          "seed_set": [
+            1143,
+            1182,
+            1183,
+            1683
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 6032
+        },
+        {
+          "step": 4,
+          "action": 1099,
+          "reward": 1.0,
+          "mean_spread": 4378.17,
+          "std_spread": 67.5485,
+          "seed_set": [
+            1099,
+            1143,
+            1182,
+            1183,
+            1683
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6033
+        },
+        {
+          "step": 5,
+          "action": 1218,
+          "reward": -8.05,
+          "mean_spread": 4370.12,
+          "std_spread": 68.3661,
+          "seed_set": [
+            1099,
+            1143,
+            1182,
+            1183,
+            1218,
+            1683
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 6035
+        },
+        {
+          "step": 6,
+          "action": 1101,
+          "reward": 1.0,
+          "mean_spread": 4371.12,
+          "std_spread": 68.3661,
+          "seed_set": [
+            1099,
+            1101,
+            1143,
+            1182,
+            1183,
+            1218,
+            1683
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 6036
+        },
+        {
+          "step": 7,
+          "action": 1185,
+          "reward": 1.0,
+          "mean_spread": 4372.12,
+          "std_spread": 68.3661,
+          "seed_set": [
+            1099,
+            1101,
+            1143,
+            1182,
+            1183,
+            1185,
+            1218,
+            1683
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 6037
+        },
+        {
+          "step": 8,
+          "action": 1186,
+          "reward": 1.0,
+          "mean_spread": 4373.12,
+          "std_spread": 68.3661,
+          "seed_set": [
+            1099,
+            1101,
+            1143,
+            1182,
+            1183,
+            1185,
+            1186,
+            1218,
+            1683
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 6038
+        },
+        {
+          "step": 9,
+          "action": 1463,
+          "reward": 1.0,
+          "mean_spread": 4374.12,
+          "std_spread": 68.3661,
+          "seed_set": [
+            1099,
+            1101,
+            1143,
+            1182,
+            1183,
+            1185,
+            1186,
+            1218,
+            1463,
+            1683
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 6039
+        }
+      ]
+    },
+    {
+      "episode": 28,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1578,
+        1683,
+        3044,
+        3888,
+        4644,
+        5169,
+        5376,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 3888,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 1578,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1578,
+            1683,
+            3044,
+            3888,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    },
+    {
+      "episode": 29,
+      "total_reward": 10.96,
+      "final_spread": 10.96,
+      "final_seed_set": [
+        1461,
+        1496,
+        1578,
+        1683,
+        3044,
+        4644,
+        5169,
+        5376,
+        5525,
+        5577
+      ],
+      "n_steps": 10,
+      "steps": [
+        {
+          "step": 0,
+          "action": 1683,
+          "reward": 1.96,
+          "mean_spread": 1.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683
+          ],
+          "budget_remaining": 9,
+          "n_activated_union": 2
+        },
+        {
+          "step": 1,
+          "action": 5577,
+          "reward": 1.0,
+          "mean_spread": 2.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1683,
+            5577
+          ],
+          "budget_remaining": 8,
+          "n_activated_union": 3
+        },
+        {
+          "step": 2,
+          "action": 1461,
+          "reward": 1.0,
+          "mean_spread": 3.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            5577
+          ],
+          "budget_remaining": 7,
+          "n_activated_union": 4
+        },
+        {
+          "step": 3,
+          "action": 3044,
+          "reward": 1.0,
+          "mean_spread": 4.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            5577
+          ],
+          "budget_remaining": 6,
+          "n_activated_union": 5
+        },
+        {
+          "step": 4,
+          "action": 4644,
+          "reward": 1.0,
+          "mean_spread": 5.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5577
+          ],
+          "budget_remaining": 5,
+          "n_activated_union": 6
+        },
+        {
+          "step": 5,
+          "action": 5169,
+          "reward": 1.0,
+          "mean_spread": 6.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 4,
+          "n_activated_union": 7
+        },
+        {
+          "step": 6,
+          "action": 1496,
+          "reward": 1.0,
+          "mean_spread": 7.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5577
+          ],
+          "budget_remaining": 3,
+          "n_activated_union": 8
+        },
+        {
+          "step": 7,
+          "action": 5376,
+          "reward": 1.0,
+          "mean_spread": 8.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5577
+          ],
+          "budget_remaining": 2,
+          "n_activated_union": 9
+        },
+        {
+          "step": 8,
+          "action": 5525,
+          "reward": 1.0,
+          "mean_spread": 9.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 1,
+          "n_activated_union": 10
+        },
+        {
+          "step": 9,
+          "action": 1578,
+          "reward": 1.0,
+          "mean_spread": 10.96,
+          "std_spread": 0.196,
+          "seed_set": [
+            1461,
+            1496,
+            1578,
+            1683,
+            3044,
+            4644,
+            5169,
+            5376,
+            5525,
+            5577
+          ],
+          "budget_remaining": 0,
+          "n_activated_union": 11
+        }
+      ]
+    }
+  ]
+}

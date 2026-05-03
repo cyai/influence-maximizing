@@ -1,0 +1,371 @@
+{
+  "timestamp": "20260502_025501",
+  "config": {
+    "data_path": "data/p2p-Gnutella08.txt",
+    "embeddings": "node_embeddings.pt",
+    "mc_sims": 30,
+    "prob_threshold": 0.0001,
+    "device": "cpu",
+    "budget": 3,
+    "include": [
+      "random",
+      "degree",
+      "pagerank",
+      "kshell",
+      "degree_discount"
+    ],
+    "exclude": null,
+    "agent_mc_rollouts": 50,
+    "lr": 0.001,
+    "gamma": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "epsilon_decay": 50,
+    "replay_buffer_size": 10000,
+    "batch_size": 64,
+    "target_update_freq": 10,
+    "linucb_alpha": 1.0,
+    "linucb_lambda": 1.0,
+    "imm_epsilon": 0.1,
+    "imm_delta": 0.0,
+    "imm_theta_max": 200000,
+    "pagerank_alpha": 0.85,
+    "betweenness_n_samples": 500,
+    "community_resolution": 1.0,
+    "s2v_t_iters": 4,
+    "s2v_hidden_dim": 64,
+    "episodes": 1,
+    "seed": 42,
+    "results_dir": "results",
+    "report_path": "docs/COMPREHENSIVE_BENCHMARK_smoke.md",
+    "log_level": "WARNING"
+  },
+  "overall_elapsed_sec": 2.13,
+  "results": [
+    {
+      "strategy": "random",
+      "family": "Baseline",
+      "label": "Random",
+      "elapsed_sec": 0.13,
+      "n_episodes": 1,
+      "mean_spread": 4215.9667,
+      "std_spread": 0.0,
+      "min_spread": 4215.9667,
+      "max_spread": 4215.9667,
+      "mean_reward": 4215.9667,
+      "last_seed_set": [
+        562,
+        4124,
+        4876
+      ],
+      "episodes": [
+        {
+          "episode": 0,
+          "total_reward": 4215.9667,
+          "final_spread": 4215.9667,
+          "final_seed_set": [
+            562,
+            4124,
+            4876
+          ],
+          "n_steps": 3,
+          "steps": [
+            {
+              "step": 0,
+              "action": 562,
+              "reward": 1.0,
+              "mean_spread": 1.0,
+              "seed_set": [
+                562
+              ],
+              "n_activated_union": 1
+            },
+            {
+              "step": 1,
+              "action": 4876,
+              "reward": 1.0,
+              "mean_spread": 2.0,
+              "seed_set": [
+                562,
+                4876
+              ],
+              "n_activated_union": 2
+            },
+            {
+              "step": 2,
+              "action": 4124,
+              "reward": 4213.9667,
+              "mean_spread": 4215.9667,
+              "seed_set": [
+                562,
+                4124,
+                4876
+              ],
+              "n_activated_union": 6020
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "strategy": "degree",
+      "family": "Baseline",
+      "label": "Degree",
+      "elapsed_sec": 0.4,
+      "n_episodes": 1,
+      "mean_spread": 4384.1,
+      "std_spread": 0.0,
+      "min_spread": 4384.1,
+      "max_spread": 4384.1,
+      "mean_reward": 4384.1,
+      "last_seed_set": [
+        0,
+        22,
+        5831
+      ],
+      "episodes": [
+        {
+          "episode": 0,
+          "total_reward": 4384.1,
+          "final_spread": 4384.1,
+          "final_seed_set": [
+            0,
+            22,
+            5831
+          ],
+          "n_steps": 3,
+          "steps": [
+            {
+              "step": 0,
+              "action": 5831,
+              "reward": 4368.2333,
+              "mean_spread": 4368.2333,
+              "seed_set": [
+                5831
+              ],
+              "n_activated_union": 6019
+            },
+            {
+              "step": 1,
+              "action": 0,
+              "reward": 3.4,
+              "mean_spread": 4371.6333,
+              "seed_set": [
+                0,
+                5831
+              ],
+              "n_activated_union": 6027
+            },
+            {
+              "step": 2,
+              "action": 22,
+              "reward": 12.4667,
+              "mean_spread": 4384.1,
+              "seed_set": [
+                0,
+                22,
+                5831
+              ],
+              "n_activated_union": 6024
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "strategy": "pagerank",
+      "family": "Centrality",
+      "label": "PageRank",
+      "elapsed_sec": 0.71,
+      "n_episodes": 1,
+      "mean_spread": 4361.2667,
+      "std_spread": 0.0,
+      "min_spread": 4361.2667,
+      "max_spread": 4361.2667,
+      "mean_reward": 4361.2667,
+      "last_seed_set": [
+        367,
+        1649,
+        5943
+      ],
+      "episodes": [
+        {
+          "episode": 0,
+          "total_reward": 4361.2667,
+          "final_spread": 4361.2667,
+          "final_seed_set": [
+            367,
+            1649,
+            5943
+          ],
+          "n_steps": 3,
+          "steps": [
+            {
+              "step": 0,
+              "action": 367,
+              "reward": 4374.0333,
+              "mean_spread": 4374.0333,
+              "seed_set": [
+                367
+              ],
+              "n_activated_union": 6022
+            },
+            {
+              "step": 1,
+              "action": 1649,
+              "reward": -13.7667,
+              "mean_spread": 4360.2667,
+              "seed_set": [
+                367,
+                1649
+              ],
+              "n_activated_union": 6017
+            },
+            {
+              "step": 2,
+              "action": 5943,
+              "reward": 1.0,
+              "mean_spread": 4361.2667,
+              "seed_set": [
+                367,
+                1649,
+                5943
+              ],
+              "n_activated_union": 6018
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "strategy": "kshell",
+      "family": "Centrality",
+      "label": "k-shell",
+      "elapsed_sec": 0.48,
+      "n_episodes": 1,
+      "mean_spread": 4374.3667,
+      "std_spread": 0.0,
+      "min_spread": 4374.3667,
+      "max_spread": 4374.3667,
+      "mean_reward": 4374.3667,
+      "last_seed_set": [
+        3,
+        366,
+        421
+      ],
+      "episodes": [
+        {
+          "episode": 0,
+          "total_reward": 4374.3667,
+          "final_spread": 4374.3667,
+          "final_seed_set": [
+            3,
+            366,
+            421
+          ],
+          "n_steps": 3,
+          "steps": [
+            {
+              "step": 0,
+              "action": 3,
+              "reward": 4387.7333,
+              "mean_spread": 4387.7333,
+              "seed_set": [
+                3
+              ],
+              "n_activated_union": 6027
+            },
+            {
+              "step": 1,
+              "action": 366,
+              "reward": -17.4667,
+              "mean_spread": 4370.2667,
+              "seed_set": [
+                3,
+                366
+              ],
+              "n_activated_union": 6023
+            },
+            {
+              "step": 2,
+              "action": 421,
+              "reward": 4.1,
+              "mean_spread": 4374.3667,
+              "seed_set": [
+                3,
+                366,
+                421
+              ],
+              "n_activated_union": 6026
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "strategy": "degree_discount",
+      "family": "Centrality",
+      "label": "DegreeDiscount",
+      "elapsed_sec": 0.4,
+      "n_episodes": 1,
+      "mean_spread": 4371.3667,
+      "std_spread": 0.0,
+      "min_spread": 4371.3667,
+      "max_spread": 4371.3667,
+      "mean_reward": 4371.3667,
+      "last_seed_set": [
+        123,
+        194,
+        431
+      ],
+      "episodes": [
+        {
+          "episode": 0,
+          "total_reward": 4371.3667,
+          "final_spread": 4371.3667,
+          "final_seed_set": [
+            123,
+            194,
+            431
+          ],
+          "n_steps": 3,
+          "steps": [
+            {
+              "step": 0,
+              "action": 123,
+              "reward": 4368.7667,
+              "mean_spread": 4368.7667,
+              "seed_set": [
+                123
+              ],
+              "n_activated_union": 6021
+            },
+            {
+              "step": 1,
+              "action": 194,
+              "reward": -5.6667,
+              "mean_spread": 4363.1,
+              "seed_set": [
+                123,
+                194
+              ],
+              "n_activated_union": 6031
+            },
+            {
+              "step": 2,
+              "action": 431,
+              "reward": 8.2667,
+              "mean_spread": 4371.3667,
+              "seed_set": [
+                123,
+                194,
+                431
+              ],
+              "n_activated_union": 6027
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
