@@ -16,8 +16,8 @@ MC_ROLLOUTS="${MC_ROLLOUTS:-20}"
 SEED="${SEED:-42}"
 DEVICE="${DEVICE:-cpu}"
 
-# you can change this value to the max number of RR-sets for IMM
-IMM_THETA="${IMM_THETA_MAX:-50000}"
+# Max RR-sets for IMM. The theoretical theta for this graph (n=6301, OPT~4430) is ~11000,
+IMM_THETA=15000
 
 mkdir -p "$LOG_DIR" "$RESULTS_DIR"
 LOG_FILE="$LOG_DIR/run.log"
