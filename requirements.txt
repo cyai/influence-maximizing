@@ -1,7 +1,13 @@
-torch>=2.1.0
-torchvision>=0.16.0
-torchaudio>=2.1.0
-torch_geometric>=2.4.0
+# Core numerics  (numpy 1.x and 2.x are both fine with torch>=2.3 + sklearn>=1.4)
 numpy>=1.24.0
 scikit-learn>=1.3.0
 tqdm>=4.66.0
+
+# Graph algorithms (used by centrality + community agents)
+networkx>=3.0
+
+# Deep learning + graph neural networks
+# NOTE: install torch FIRST (CPU build) via run.sh — torch_geometric>=2.4 has
+# scatter ops built-in, no torch_scatter / torch_sparse needed for this project.
+torch>=2.1.0
+torch_geometric>=2.4.0
