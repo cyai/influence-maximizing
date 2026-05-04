@@ -91,52 +91,119 @@ def _pagerank(edge_index: torch.Tensor, num_nodes: int,
     return pr
 
 
-def load_graph(path: str) -> Data:
-    """Parse edge-list file and return a PyG Data object with node features.
+def load_graph(path: str, signed: bool = False) -> Data:
+    """Parse a graph file and return a PyG Data object with node features.
 
-    Features (5 per node):
-      0  norm_in_degree   — fraction of max in-degree
-      1  norm_out_degree  — fraction of max out-degree
-      2  norm_total_degree
-      3  degree_ratio     — out / (in + 1)  captures hub vs. sink role
-      4  pagerank         — importance in the global information flow
+    Supports two formats (auto-detected by extension):
+      .txt / .gz  — whitespace edge list (SNAP p2p style)
+      .csv        — signed ratings CSV: SOURCE,TARGET,RATING,TIME
+                    Only RATING > 0 edges are kept for influence propagation.
+                    Nodes are re-indexed to 0..N-1.
+
+    Features when signed=False (5 per node) — p2p / unsigned networks:
+      norm_in_deg, norm_out_deg, norm_total_deg, deg_ratio, pagerank
+
+    Features when signed=True  (7 per node) — signed trust networks:
+      norm_pos_in_deg   — in-degree from positive (trust) edges
+      norm_neg_in_deg   — in-degree from negative (distrust) edges
+      norm_pos_out_deg  — out-degree via positive edges
+      norm_neg_out_deg  — out-degree via negative edges
+      balance_ratio     — pos_out / (pos_out + neg_out + 1)
+      deg_ratio         — pos_out / (pos_in + 1)  influencer proxy
+      pagerank          — PR on positive-edge subgraph
     """
-    edges = []
-    with open(path, "r") as f:
-        for line in f:
-            line = line.strip()
-            if not line or line.startswith("#"):
-                continue
-            u, v = map(int, line.split())
-            edges.append((u, v))
+    import csv as _csv
 
-    edges_t = torch.tensor(edges, dtype=torch.long).t().contiguous()  # (2, E)
-    num_nodes = int(edges_t.max().item()) + 1
+    path = str(path)
+    is_csv = path.lower().endswith(".csv")
 
-    out_deg = torch.zeros(num_nodes, dtype=torch.float)
-    in_deg  = torch.zeros(num_nodes, dtype=torch.float)
-    out_deg.scatter_add_(0, edges_t[0], torch.ones(edges_t.size(1)))
-    in_deg.scatter_add_(0,  edges_t[1], torch.ones(edges_t.size(1)))
-    total_deg = out_deg + in_deg
+    raw_pos_edges: list = []   # always used for IC / message passing
+    raw_neg_edges: list = []   # only used for signed features
+
+    if is_csv:
+        id_set: set = set()
+        with open(path, newline="") as f:
+            reader = _csv.reader(f)
+            for row in reader:
+                if not row or not row[0].strip().lstrip("-").isdigit():
+                    continue
+                if len(row) < 3:
+                    continue
+                src, tgt, rating = int(row[0]), int(row[1]), int(row[2])
+                if src == tgt:
+                    continue
+                id_set.update((src, tgt))
+                if rating > 0:
+                    raw_pos_edges.append((src, tgt))
+                else:
+                    raw_neg_edges.append((src, tgt))
+        # Contiguous re-indexing
+        sorted_ids = sorted(id_set)
+        id_map = {orig: idx for idx, orig in enumerate(sorted_ids)}
+        num_nodes = len(sorted_ids)
+        pos_edges = [(id_map[u], id_map[v]) for u, v in raw_pos_edges]
+        neg_edges = [(id_map[u], id_map[v]) for u, v in raw_neg_edges]
+    else:
+        with open(path, "r") as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#"):
+                    continue
+                parts = line.split()
+                if len(parts) < 2:
+                    continue
+                u, v = int(parts[0]), int(parts[1])
+                if u != v:
+                    raw_pos_edges.append((u, v))
+        num_nodes = max(max(u, v) for u, v in raw_pos_edges) + 1
+        pos_edges = raw_pos_edges
+        neg_edges = []
+
+    edges_t = torch.tensor(pos_edges, dtype=torch.long).t().contiguous()  # (2, E_pos)
+
+    def _deg(edge_list, n):
+        out = torch.zeros(n, dtype=torch.float)
+        inn = torch.zeros(n, dtype=torch.float)
+        if edge_list:
+            t = torch.tensor(edge_list, dtype=torch.long).t()
+            out.scatter_add_(0, t[0], torch.ones(t.size(1)))
+            inn.scatter_add_(0, t[1], torch.ones(t.size(1)))
+        return out, inn
 
     def norm(t: torch.Tensor) -> torch.Tensor:
         mx = t.max()
         return t / mx if mx > 0 else t
 
-    deg_ratio = out_deg / (in_deg + 1.0)   # out/in ratio; high → influencer node
+    pos_out_deg, pos_in_deg = _deg(pos_edges, num_nodes)
     pr = _pagerank(edges_t, num_nodes)
 
-    x = torch.stack([
-        norm(in_deg),
-        norm(out_deg),
-        norm(total_deg),
-        norm(deg_ratio),
-        norm(pr),
-    ], dim=1)  # (N, 5)
+    if signed and neg_edges:
+        neg_out_deg, neg_in_deg = _deg(neg_edges, num_nodes)
+        balance = pos_out_deg / (pos_out_deg + neg_out_deg + 1.0)
+        deg_ratio = pos_out_deg / (pos_in_deg + 1.0)
+        x = torch.stack([
+            norm(pos_in_deg),
+            norm(neg_in_deg),
+            norm(pos_out_deg),
+            norm(neg_out_deg),
+            norm(balance),
+            norm(deg_ratio),
+            norm(pr),
+        ], dim=1)  # (N, 7)
+    else:
+        total_deg = pos_out_deg + pos_in_deg
+        deg_ratio = pos_out_deg / (pos_in_deg + 1.0)
+        x = torch.stack([
+            norm(pos_in_deg),
+            norm(pos_out_deg),
+            norm(total_deg),
+            norm(deg_ratio),
+            norm(pr),
+        ], dim=1)  # (N, 5)
 
     data = Data(x=x, edge_index=edges_t, num_nodes=num_nodes)
-    print(f"Graph loaded  — nodes: {num_nodes:,}  directed edges: {edges_t.size(1):,}  "
-          f"features per node: {x.size(1)}")
+    print(f"Graph loaded  — nodes: {num_nodes:,}  influence edges: {edges_t.size(1):,}  "
+          f"neg edges: {len(neg_edges):,}  features: {x.size(1)}")
     return data
 
 
@@ -268,15 +335,22 @@ def evaluate(
 # Main training loop
 # ---------------------------------------------------------------------------
 
-def train(data_path: str = DATA_PATH) -> None:
+def train(
+    data_path: str = DATA_PATH,
+    signed: bool = False,
+    out_npy: str = OUT_EMBEDDINGS_NPY,
+    out_pt: str = OUT_EMBEDDINGS_PT,
+    out_meta: str = OUT_META_JSON,
+    checkpoint_dir: str = CHECKPOINT_DIR,
+) -> None:
     torch.manual_seed(SEED)
     np.random.seed(SEED)
 
     device = get_device()
-    os.makedirs(CHECKPOINT_DIR, exist_ok=True)
+    os.makedirs(checkpoint_dir, exist_ok=True)
 
     # --- Load graph ---
-    data = load_graph(data_path)
+    data = load_graph(data_path, signed=signed)
     num_nodes = data.num_nodes
 
     # --- Edge split: keep directed edges for message passing undirected ---
@@ -360,7 +434,7 @@ def train(data_path: str = DATA_PATH) -> None:
                 best_val_auc = val_auc
                 best_epoch = epoch
                 best_state = {k: v.clone() for k, v in model.state_dict().items()}
-                torch.save(best_state, os.path.join(CHECKPOINT_DIR, "best_model.pt"))
+                torch.save(best_state, os.path.join(checkpoint_dir, "best_model.pt"))
 
     elapsed = time.time() - train_start
     print(f"\nTraining complete in {elapsed:.1f}s — "
@@ -378,10 +452,12 @@ def train(data_path: str = DATA_PATH) -> None:
     embeddings_np = z_final.cpu().numpy()   # (N, 64)
     embeddings_pt = z_final.cpu()
 
-    np.save(OUT_EMBEDDINGS_NPY, embeddings_np)
-    torch.save(embeddings_pt, OUT_EMBEDDINGS_PT)
+    np.save(out_npy, embeddings_np)
+    torch.save(embeddings_pt, out_pt)
 
     meta = {
+        "dataset": data_path,
+        "signed_features": signed,
         "num_nodes": num_nodes,
         "num_features": int(data.x.size(1)),
         "embed_dim": EMBED_DIM,
@@ -397,24 +473,24 @@ def train(data_path: str = DATA_PATH) -> None:
         "device": str(device),
         "elapsed_seconds": round(elapsed, 2),
         "output_files": {
-            "embeddings_npy": OUT_EMBEDDINGS_NPY,
-            "embeddings_pt": OUT_EMBEDDINGS_PT,
+            "embeddings_npy": out_npy,
+            "embeddings_pt": out_pt,
         },
         "usage_note": (
-            "P_uv = torch.sigmoid((H[v] * H[u]).sum(dim=-1))  "
-            "where H = torch.load('node_embeddings.pt')"
+            f"P_uv = torch.sigmoid((H[v] * H[u]).sum(dim=-1))  "
+            f"where H = torch.load('{out_pt}')"
         ),
     }
-    with open(OUT_META_JSON, "w") as f:
+    with open(out_meta, "w") as f:
         json.dump(meta, f, indent=2)
 
     print(f"\nSaved:")
-    print(f"  {OUT_EMBEDDINGS_NPY}  — shape {embeddings_np.shape}")
-    print(f"  {OUT_EMBEDDINGS_PT}")
-    print(f"  {OUT_META_JSON}")
-    print("\nTo compute influence probability P(u -> v):")
-    print("  H = torch.load('node_embeddings.pt')")
-    print("  P_uv = torch.sigmoid((H[v] * H[u]).sum(dim=-1))")
+    print(f"  {out_npy}  — shape {embeddings_np.shape}")
+    print(f"  {out_pt}")
+    print(f"  {out_meta}")
+    print(f"\nTo compute influence probability P(u -> v):")
+    print(f"  H = torch.load('{out_pt}')")
+    print(f"  P_uv = torch.sigmoid((H[v] * H[u]).sum(dim=-1))")
 
 
 # ---------------------------------------------------------------------------
@@ -422,4 +498,29 @@ def train(data_path: str = DATA_PATH) -> None:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    train()
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Train GNN embeddings for IM pipeline.")
+    parser.add_argument("--data-path",   default=DATA_PATH,
+                        help="Edge-list (.txt) or signed CSV (.csv) input file.")
+    parser.add_argument("--signed",      action="store_true",
+                        help="Use signed-network features (pos/neg degree, balance). "
+                             "Requires a CSV with a RATING column.")
+    parser.add_argument("--out-npy",     default=OUT_EMBEDDINGS_NPY,
+                        help="Output path for numpy embeddings.")
+    parser.add_argument("--out-pt",      default=OUT_EMBEDDINGS_PT,
+                        help="Output path for PyTorch embeddings.")
+    parser.add_argument("--out-meta",    default=OUT_META_JSON,
+                        help="Output path for metadata JSON.")
+    parser.add_argument("--checkpoint-dir", default=CHECKPOINT_DIR,
+                        help="Directory to save best model checkpoint.")
+    args = parser.parse_args()
+
+    train(
+        data_path=args.data_path,
+        signed=args.signed,
+        out_npy=args.out_npy,
+        out_pt=args.out_pt,
+        out_meta=args.out_meta,
+        checkpoint_dir=args.checkpoint_dir,
+    )
